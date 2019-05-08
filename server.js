@@ -1,14 +1,14 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 
 const port = 5000;
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, {
-        'Content-Type': 'text/plain'
-    });
-    res.end('Hello World!');
+app.get('/', (req, res) => {
+    res.send("Hello World!");
 });
 
-server.listen(port, () => {
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app;
